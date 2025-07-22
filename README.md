@@ -1,70 +1,331 @@
-# Getting Started with Create React App
+#  El Criollo Restaurant - Sistema de Gestión Completo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **Descripción**
 
-## Available Scripts
+**El Criollo** es un sistema completo de gestión de restaurante desarrollado con tecnologías modernas, inspirado en el auténtico sabor dominicano. Este proyecto combina un backend robusto en ASP.NET Core con un frontend elegante en React, ofreciendo una experiencia completa para la gestión de restaurantes.
 
-In the project directory, you can run:
+### 🎯 **Características Principales**
 
-### `npm start`
+- 🔐 **Autenticación JWT** - Sistema seguro de login/register
+- 👥 **Gestión de Usuarios** - Roles diferenciados (Admin, Mesero, Cliente, etc.)
+- 🍖 **Menú Digital** - Catálogo de productos dominicanos con filtros
+- 🪑 **Gestión de Mesas** - Control de estados y disponibilidad
+- 📋 **Sistema de Pedidos** - Carrito de compras y gestión de órdenes
+- 📧 **Notificaciones Email** - Confirmaciones automáticas
+- 🎨 **Diseño Dominicano** - Interfaz inspirada en colores del Caribe
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🏗️ **Arquitectura del Sistema**
 
-### `npm test`
+### **Backend - ASP.NET Core 8.0**
+```
+📦 ElCriollo.API
+├── 🎯 Controllers/ (Auth, Productos, Mesas, Pedidos, Usuarios)
+├── 🗃️ Models/ (Entidades del dominio)
+├── 🔧 Services/ (Lógica de negocio)
+├── 📧 EmailService/ (Notificaciones automáticas)
+├── 🛡️ JWT Authentication
+└── 🗄️ Entity Framework Core
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Frontend - React 18**
+```
+📦 el-criollo-frontend
+├── 🔐 Authentication (Login/Register/Context)
+├── 🏠 Dashboard (Panel por roles)
+├── 🍖 MenuProductos (Catálogo)
+├── 🪑 GestionMesas (Control de mesas)
+├── 📋 GestionPedidos (Sistema de órdenes)
+├── 👥 GestionUsuarios (Panel admin)
+└── 🎨 Estilos dominicanos
+```
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 **Instalación y Configuración**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **Prerrequisitos**
+- ✅ .NET 8.0 SDK
+- ✅ Node.js 18+
+- ✅ SQL Server / SQL Server Express
+- ✅ Visual Studio 2022 o VS Code
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **1. Backend Setup**
+```bash
+# Clonar el repositorio
+git clone https://github.com/TU_USUARIO/el-criollo-restaurant.git
+cd el-criollo-restaurant
 
-### `npm run eject`
+# Configurar base de datos
+# Actualizar connectionString en appsettings.json
+dotnet ef database update
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Ejecutar API
+dotnet run --project ElCriollo.API
+# API disponible en: http://localhost:7121
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### **2. Frontend Setup**
+```bash
+# Ir a la carpeta frontend
+cd el-criollo-frontend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Instalar dependencias
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Ejecutar desarrollo
+npm start
+# Frontend disponible en: http://localhost:3000
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🎮 **Guía de Uso**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### **🔐 Credenciales de Prueba**
+```
+👑 Administrador:
+Email: admin@elcriollo.com
+Password: thepikachu0123_
 
-### Code Splitting
+🍽️ Mesero:
+Email: mesero@elcriollo.com  
+Password: mesero123
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+👤 Cliente:
+Email: cliente@elcriollo.com
+Password: cliente123
+```
 
-### Analyzing the Bundle Size
+### **📱 Funcionalidades por Rol**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### **👑 Administrador**
+- ✅ Gestión completa de usuarios
+- ✅ Configuración de productos y menú
+- ✅ Control total de mesas
+- ✅ Supervisión de pedidos
+- ✅ Acceso a estadísticas
 
-### Making a Progressive Web App
+#### **🍽️ Mesero**
+- ✅ Gestión de mesas y estados
+- ✅ Tomar y procesar pedidos
+- ✅ Actualizar estados de órdenes
+- ✅ Consultar menú
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### **👤 Cliente**
+- ✅ Explorar menú dominicano
+- ✅ Realizar pedidos
+- ✅ Ver estado de mesas
+- ✅ Historial personal
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+##  **Menú Dominicano**
 
-### Deployment
+### **Especialidades Disponibles**
+- 🥩 **Chivo Guisado** - $680.00
+- 🍗 **Pollo Guisado** - $450.00  
+- 🍚 **Moro de Guandules** - $120.00
+- 🍹 **Jugo de Chinola** - $120.00
+- 🥗 **Ensalada Mixta** - $180.00
+- 🍰 **Tres Golpes** - $250.00
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### **Categorías**
+- 🥗 Entradas
+- 🍖 Plato Principal
+- 🍚 Acompañantes  
+- 🥤 Bebidas
+- 🍺 Bebidas Alcohólicas
+- 🍰 Postres
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🛠️ **Stack Tecnológico**
+
+### **Backend**
+- 🔵 **ASP.NET Core 8.0** - Framework web
+- 🗄️ **Entity Framework Core** - ORM
+- 🔑 **JWT Bearer** - Autenticación
+- 📧 **MailKit** - Servicio de email
+- 🗃️ **SQL Server** - Base de datos
+- 📝 **Swagger** - Documentación API
+
+### **Frontend**
+- ⚛️ **React 18** - Biblioteca UI
+- 🛣️ **React Router** - Navegación
+- 🍀 **Context API** - Estado global
+- 🎨 **CSS3** - Estilos personalizados
+- 📱 **Responsive Design** - Compatible móvil
+- 🌐 **Axios** - Cliente HTTP
+
+---
+
+## 🎨 **Diseño y UI/UX**
+
+### **Paleta de Colores Dominicana**
+```css
+🔴 Rojo Dominicano: #DC2626 (Bandera)
+🔵 Azul Dominicano: #1E40AF (Bandera)  
+🟢 Verde Caribeño: #059669 (Naturaleza)
+🟡 Amarillo Mango: #F59E0B (Frutas tropicales)
+🤎 Marrón Chivo: #92400E (Chivo guisado)
+🤍 Blanco Coco: #F8FAFC (Playas)
+🟠 Naranja Plátano: #FEF3C7 (Plátanos)
+```
+
+### **Características del Diseño**
+- 🎨 **Tema Dominicano** - Colores y elementos del Caribe
+- 📱 **Responsive** - Adaptable a móviles y tablets
+- ⚡ **Performance** - Carga rápida y fluida
+- ♿ **Accesible** - Diseño inclusivo
+- 🎯 **Intuitivo** - UX optimizada por rol
+
+---
+
+## 📊 **Características Técnicas**
+
+### **🔐 Seguridad**
+- ✅ Autenticación JWT con refresh tokens
+- ✅ Validación de datos en frontend y backend
+- ✅ Protección de rutas por roles
+- ✅ Encriptación de contraseñas
+- ✅ Sanitización de inputs
+
+### **📈 Performance**
+- ✅ Lazy loading de componentes
+- ✅ Optimización de queries
+- ✅ Caching de respuestas
+- ✅ Minificación de assets
+- ✅ Compresión de imágenes
+
+### **🧪 Testing**
+- ✅ Validación de endpoints API
+- ✅ Testing de componentes React
+- ✅ Pruebas de integración
+- ✅ Testing de autenticación
+
+---
+
+## 🚀 **Deployment**
+
+### **🌐 Producción**
+```bash
+# Backend - Azure App Service
+dotnet publish -c Release
+# Configurar connection string en Azure
+
+# Frontend - Netlify/Vercel
+npm run build
+# Deploy carpeta build/
+```
+
+### **🐳 Docker**
+```dockerfile
+# Backend Dockerfile
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+COPY . .
+EXPOSE 80
+ENTRYPOINT ["dotnet", "ElCriollo.API.dll"]
+
+# Frontend Dockerfile  
+FROM node:18-alpine
+COPY . .
+RUN npm install && npm run build
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+---
+
+## 🤝 **Contribución**
+
+### **¿Quieres Contribuir?**
+1. 🍴 **Fork** el proyecto
+2. 🌿 **Crea** una rama (`git checkout -b feature/nueva-funcionalidad`)
+3. 💻 **Desarrolla** tu feature
+4. ✅ **Commit** tus cambios (`git commit -m 'Agregar nueva funcionalidad'`)
+5. 📤 **Push** a la rama (`git push origin feature/nueva-funcionalidad`)
+6. 🔄 **Abre** un Pull Request
+
+### **🐛 Reportar Bugs**
+- Usa GitHub Issues
+- Describe el problema detalladamente
+- Incluye pasos para reproducir
+- Adjunta screenshots si es posible
+
+---
+
+## 📋 **Roadmap Futuro**
+
+### **🔄 Próximas Versiones**
+- 📊 **Dashboard Analytics** - Gráficos y métricas
+- 🔔 **Notificaciones Push** - Tiempo real
+- 📱 **App Móvil** - React Native
+- 🧾 **Sistema de Facturación** - Integración contable
+- 🎯 **Programa de Lealtad** - Puntos y descuentos
+- 🌐 **Multi-idioma** - Español/Inglés
+- 💳 **Pagos Online** - Stripe/PayPal
+
+### **🛠️ Mejoras Técnicas**
+- 🧪 **Testing Completo** - Unit + Integration
+- 🐳 **Containerización** - Docker + Kubernetes  
+- 📈 **Monitoring** - Application Insights
+- 🚀 **CI/CD Pipeline** - GitHub Actions
+- 🗄️ **Data Analytics** - Power BI integration
+
+---
+
+## 📞 **Contacto y Soporte**
+
+### **👨‍💻 Desarrollador**
+- **Nombre:** Josué Bernabé
+- **Email:** josue@elcriollo.com
+- **LinkedIn:** [josue-bernabe](https://linkedin.com/in/josue-bernabe)
+- **GitHub:** [TU_USUARIO](https://github.com/TU_USUARIO)
+
+### **🏢 Proyecto**
+- **Website:** [elcriollo.com](https://elcriollo.com)
+- **Demo:** [demo.elcriollo.com](https://demo.elcriollo.com)
+- **Documentación:** [docs.elcriollo.com](https://docs.elcriollo.com)
+
+---
+
+## 📄 **Licencia**
+
+Este proyecto está bajo la Licencia MIT - ve el archivo [LICENSE.md](LICENSE.md) para más detalles.
+
+---
+
+## 🙏 **Agradecimientos**
+
+### **🌟 Inspiración**
+- 🇩🇴 **Cultura Dominicana** - Sabores y tradiciones
+- 🍖 **Restaurantes Criollos** - Experiencia auténtica
+- 👨‍🍳 **Chefs Dominicanos** - Recetas tradicionales
+
+### **🛠️ Tecnologías**
+- **Microsoft** - Por .NET Core y Azure
+- **Meta** - Por React y herramientas de desarrollo
+- **Comunidad Open Source** - Por librerías increíbles
+
+---
+
+<div align="center">
+
+## 🇩🇴 **¡Disfruta el Auténtico Sabor Dominicano!** 🇩🇴
+
+### **El Criollo Restaurant - Donde la Tecnología se Encuentra con la Tradición**
+
+![Dominican Food](https://img.shields.io/badge/🍖-Chivo_Guisado-red?style=for-the-badge)
+![Dominican Food](https://img.shields.io/badge/🍚-Moro_de_Guandules-green?style=for-the-badge)
+![Dominican Food](https://img.shields.io/badge/🍹-Jugo_de_Chinola-yellow?style=for-the-badge)
+
+**⭐ Si te gusta este proyecto, dale una estrella en GitHub ⭐**
+
+---
+
+**Desarrollado por Josue Bernabe**  
+**© 2025 El Criollo Restaurant. Todos los derechos reservados.**
+
+</div>
